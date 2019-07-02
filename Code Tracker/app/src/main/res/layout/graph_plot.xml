@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PROGRESS REPORT"
+        android:textSize="17sp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:padding="2dp"
+        android:textAlignment="center"
+        tools:ignore="HardcodedText" />
+    <com.jjoe64.graphview.GraphView
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:layout_margin="4dp"
+        android:id="@+id/graph" />
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/cardview_default_radius">
+
+        <TextView
+            android:id="@+id/start_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Number of Pending Problem"
+            android:textSize="15sp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:padding="2dp"
+            android:textAlignment="center"
+            tools:ignore="HardcodedText"
+            android:layout_marginBottom="20dp"/>
+    </android.support.v7.widget.CardView>
+
+
+    <com.jjoe64.graphview.GraphView
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:layout_margin="4dp"
+        android:id="@+id/graph2" />
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/cardview_default_radius">
+
+        <TextView
+            android:id="@+id/start_time2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Number of Solved Problem"
+            android:textSize="15sp"
+            android:padding="2dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:textAlignment="center"
+            tools:ignore="HardcodedText"/>
+    </android.support.v7.widget.CardView>
+
+
+
+</LinearLayout>

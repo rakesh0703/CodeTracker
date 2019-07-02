@@ -1,0 +1,27 @@
+#select2-container{
+
+max-width: 50%;
+
+
+}
+
+
+.problem-container header h1 span {
+
+
+top:-8px !important;
+
+}
+
+.b2{
+	background-color: green !important;
+}
+
+.b1{
+background-color: #FFA500 !important;
+
+}
+
+.select2-selection--multiple{
+	padding-left: 5px !important;
+}

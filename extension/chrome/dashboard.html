@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://fongandrew.github.io/hydeout/ -->
+<html lang="en-us" class="gr__fongandrew_github_io">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="http://gmpg.org/xfn/11" rel="profile">
+	<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Krub" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Muli" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree|Dosis|Muli" rel="stylesheet">
+	<title>
+		Code tracker
+	</title>
+
+	<!--scripts-->
+	<script src="external_scripts/jquery-3.3.1.js"></script>
+	<link rel ="stylesheet" href="dataTables.css">
+	<script type="text/javascript" src="external_scripts/jquery.dataTables.min.js"></script>
+	<script src="external_scripts/dataTables.bootstrap.min.js"></script>
+	<script src="dashboard.js"></script>
+	<script src="notif.js"></script>
+	<script src="pagescripts/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="dashboard_files/dsh.css">
+    <style>
+    #overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 2;
+    cursor: pointer;
+    }
+	#popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+	background:#fff;
+	padding:25px;
+}
+</style>
+	</head>
+
+
+<body class="index home">
+	
+<div class="row">
+
+  <div class="col-sm-8">
+        <div class="header" >
+		    <center>
+		    <img src="../dashboard_files/code_tracker_logo.png" class="logo_style"/>
+			</center>
+		</div>
+		<center>
+        <div class="table_code_tracker">		
+  		<div id ="pending">
+		</div>
+	<br><br>
+		<div id="solved">
+		</div>
+		</div>
+  		</center>
+  </div>
+
+  <div class="col-sm-4 login-panel">
+        <div class="container">
+		<!--<div id ="pp">
+		pppp
+		</div>
+  	 	<div id ="clear_stats">
+		clear
+		</div>-->
+ 	    <div id="overlay">
+        <div id="popup">
+		            <button id="upload" class="btn-block btn btn-primary">Update Data</button>
+		            <button id="skip" class="btn-block btn btn-primary">skip</button>
+		</div>
+        </div>
+		<div style="padding-top:85px;">
+ 		<div id="login_div" class="main-div">
+   		<h3 style="color:#fff">Login</h3>
+		<!--<form action="http://localhost:8081/extension/Project/pagescripts/login.php" method="POST">-->
+		<div class="form-group">
+    	<input type="email" placeholder="Email..." id="email" name="user" class="form-control"/>
+		</div>
+		<div class="form-group">
+    	<input type="password" placeholder="Password..." id="password"  name="pass" class="form-control"/>
+		</div>
+		<div class="form-group">
+    	<button  type="submit" id="login" class="btn btn-primary btn-block">Login to Account</button>
+		</div>
+		<div class="g-signin2" data-onsuccess="onSignIn"></div>
+		<button id="register" class="btn btn-primary btn-block">Register Here</button>
+		<button id="clear_stats" class="btn-block btn btn-primary">Reset Local Data</button>
+        <div id="friendDiv"></div>
+		<!--</form>-->
+    	</div>
+    	<div id="user_div" style="display:none;">
+ 		<h3 style="color:#fff">Welcome User</h3>
+   		 <p id="user_para" style="color:#fff">Welcome User. You're currently logged in.</p>
+    	<!--<button id="upload" class="btn-block btn btn-primary">Update Data</button>-->
+		<!--<button id="resetChrome" class="btn-block btn btn-primary">Reset Local Data</button>-->
+		<button id="reset" class="btn-block btn btn-primary">Reset All Data</button>
+		<button id="logout" class="btn-block btn btn-primary">Logout</button>
+  		
+		  		<div class="card">
+		  		<div class="container">
+		    	<h6 ><i class="fas fa-exclamation-triangle " style="color:#888;" ></i><b style="font-family: 'Dosis', sans-serif;">UNSOLVED PROBLEMS</b></h6> 
+		   	 	<p id="countpending"></p> 
+		  		</div>
+				</div>
+
+
+				<div class="card">
+		  		<div class="container">
+		    	<h6 ><i class="fas fa-check" style="color:#888;" > </i><b style="font-family: 'Dosis', sans-serif;"">SOLVED PROBLEMS</b></h6> 
+		   	 	<p id="countdone"></p> 
+		  		</div>
+				</div>
+
+				<div class="card">
+		  		<div class="container">
+		    	<h6 style="color:#888;font-family: 'Bai Jamjuree', sans-serif;"><b>SOLVE THIS- Your Rating<b></h6> 
+		    		<div style="float:right;">
+		   	 	<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+</div>
+		   	 	<p class="question" id ="qui" style="font-family: 'Dosis'"></p>
+
+					<ul class="answers">
+
+					<input type="radio" name="q1" value="a" style="font-family: 'Dosis'"><label id="q1a">Option 1</label>
+
+					<input type="radio" name="q1" value="b" style="font-family: 'Dosis'"><label id="q1b">Option 2</label><br/>
+
+					<input type="radio" name="q1" value="c" style="font-family: 'Dosis'"><label id="q1c">Option 3</label>
+
+					<input type="radio" name="q1" value="d" style="font-family: 'Dosis'"><label id="q1d">Option 4</label><br/>
+
+					<input type="submit" name="s" id="qs" style="font-family: 'Dosis'"> </input>
+
+					</ul>
+		  		</div>
+				</div>
+
+				<div class="card">
+		  		<div class="container">
+		    	<p style="font-family: 'Dosis'">Set notification repeat time for unsolved problems in minutes</p> 
+		   	 	<input type="number" name="inptime" id="inptime"/>
+		   	 	<button id="settime">OK</button>
+		  		</div>
+				</div>
+
+	  	</div>
+		<div id="register_div" style="display:none;">
+ 		<h3 style="color:#fff">Welcome User</h3>
+   	    <p id="user_para" style="color:#fff">Fill the form up to register</p>
+    	<div class="form-group">
+		<input type="email" placeholder="Email..." id="email_register" name="user" class="form-control"/>
+		</div>
+		<div class="form-group">
+    	<input type="password" placeholder="Password..." id="password_register"  name="pass" class="form-control"/>
+		</div>
+		<div class="form-group">
+    	<input type="password" placeholder="Confirm Password..." id="confirm-password"  name="confirm_pass"class="form-control"/><div style="display:none;color:#DC143C" id="error"><i class="fas fa-exclamation-triangle">Password Mismatch</i></div>
+		</div>
+		<button id="registerSubmit" class="btn-block btn btn-primary">Register</button>
+  		</div>
+		</div>
+        </div> 
+  </div>
+</div>
+</body>
+</html>

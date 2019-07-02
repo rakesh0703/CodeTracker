@@ -1,0 +1,75 @@
+#pending{
+border-color: black;
+border-size:4px;
+margin-top:30px;
+max-width: 80%;
+
+}
+.checked {
+    color: orange;
+}
+#solved{
+margin-top: 30px;
+max-width: 80%;
+}
+body
+{
+   overflow-x:hidden;
+   height:100%;
+   margin:0;   
+}
+.link{
+
+background-color:rgba(6,6,6,0.2);
+
+
+}
+.col-sm-8
+{
+	padding:0;
+}
+.col-sm-4
+{
+	padding-bottom:0;
+	height:800px;
+}
+.login-panel
+{
+	/*background:radial-gradient(#0CA4D5,#0ACC3F);*/
+	background:radial-gradient(#B9FEFB,#03C9C3);
+	max-height:100%;
+}
+.logo_style
+{
+	max-height:10%;
+	max-width:50%;
+}
+
+.header{
+
+min-height:10%;
+max-height:14%;
+background-color:#ccc;
+
+
+}
+.table_code_tracker
+{
+	
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 80%;
+    margin-top: 25px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+    padding: 2px 16px;
+}
+

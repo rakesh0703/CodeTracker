@@ -1,0 +1,79 @@
+{
+  "manifest_version": 2,
+
+  "name": "Code_Tracker",
+  "description": "This extension changes the font style in a specific page.",
+  "version": "1.0",
+  "icons": {
+    "128": "icon128.png",
+    "48": "icon48.png",
+    "16": "icon16.png"
+  },
+
+  "browser_action": {
+    "default_icon": "icon16.png",
+    "default_popup": "popup.html"
+  },
+
+
+  "background": {
+    "scripts": ["jquery-3.3.1.js","listener.js","bg.js","notif.js"],
+    "persistent": false
+  },
+ 
+
+  "content_scripts":[
+    {
+      "matches": ["https://codeforces.com/problemset/problem/*"],
+      "js" : [ "pagescripts/jquery-3.3.1.js","pagescripts/jquery-ui.min.js","pagescripts/select2.min.js" ,"pagescripts/bootstrap.min.js","pagescripts/codeforces.js"],
+      "css": [ "css/bootstrap.min.css","css/select2.min.css","css/codeforces.css"]
+    },
+	{
+	  "matches": ["https://www.hackerearth.com/*"],
+      "js" : [ "pagescripts/jquery-3.3.1.js","pagescripts/jquery-ui.min.js","pagescripts/select2.min.js" ,"pagescripts/bootstrap.min.js","pagescripts/hackerearth.js"],
+      "css": [ "css/bootstrap.min.css","css/select2.min.css","css/hackerearth.css"]
+	},
+	{
+      "matches": ["https://www.hackerrank.com/*"],
+      "js" : [ "pagescripts/jquery-3.3.1.js","pagescripts/jquery-ui.min.js","pagescripts/select2.min.js" ,"pagescripts/bootstrap.min.js","pagescripts/hackerrank.js"],
+      "css": [ "css/bootstrap.min.css","css/select2.min.css","css/hackerrank.css"]
+    },
+	{
+      "matches": ["https://www.codechef.com/problems/*"],
+      "js" : [ "pagescripts/jquery-3.3.1.js","pagescripts/select2.min.js" ,"pagescripts/bootstrap.min.js","pagescripts/codechef.js"],
+      "css": ["css/select2.min.codechef.css","css/codechef.css"]
+    },
+     {
+      "matches": ["https://www.spoj.com/problems/*"],
+      "js" : [ "pagescripts/jquery-3.3.1.js","pagescripts/select2.min.js" ,"pagescripts/bootstrap.min.js","pagescripts/spoj.js"],
+      "css": ["css/select2.min.css","css/spoj.css"]
+    }
+	
+ //   {
+     // "matches": ["https://developer.chrome.com/*"],
+     // "js": ["content.js", "jquery-3.1.0.min.js"],
+      //"css": ["content.css"]
+  //  }   
+  
+
+  ],
+ 
+  "permissions": [
+    "http://localhost:8081/*",
+    "tabs",
+    "storage",
+    "notifications",
+    "contextMenus",
+	"http://contesttrackerapi.herokuapp.com/"
+//    "https://developer.chrome.com/*"
+        ],
+		"oauth2" : {
+        "client_id" : "407913835936-562v1ppv8ua5mlr9bgsfm79bk5plmedj.apps.googleusercontent.com",
+        "scopes" : [
+            "openid", "email", "profile"
+        ]
+    },
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+
+
+}
